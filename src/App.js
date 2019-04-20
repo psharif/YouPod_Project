@@ -8,7 +8,7 @@ import { Container } from 'semantic-ui-react'
 
 class App extends Component {
   render() {
-    return <Container className="form" verticalAlign='middle'>
+    return <Container className="form">
     <style> 
       {`
       body > div > div.form,

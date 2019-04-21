@@ -8,23 +8,13 @@ import { Container } from 'semantic-ui-react'
 
 class App extends Component {
   render() {
-    return <Container className="form">
-    <style> 
-      {`
-      body > div > div.form,
-      {
-        width: 100%;
-        height: 100%;
-      }
-    `}
-    </style>
+    return <Container text className="form">
       <Header name="YouPod" />
       <Router>
         <Home exact path="/"/>
         <Video path="/video" />
         <Podcast path="/podcast" />
-      </Router>
-      
+      </Router> 
     </Container>
   }
 }

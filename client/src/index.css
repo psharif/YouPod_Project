@@ -3,6 +3,13 @@ head, body, #root {
   height: 100%;
 }
 
-.form {
-  height: 100%;
+#root {
+  display: flex;
+  align-items: center;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+

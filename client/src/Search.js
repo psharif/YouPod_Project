@@ -16,11 +16,11 @@ export default class Search extends React.Component {
   render = () => {
     const { query } = this.state
     return (
-    <div>
-      <Input onChange={this.onChange} placeholder='Search...' />
+    <div className="search">
+      <Input fluid size='massive' icon='search' onChange={this.onChange} placeholder='Search...' />
       <div>
-        <Button primary><Link to='/video' state={{ query }} style={{ color: 'black' }}>Video</Link></Button>
-        <Button secondary><Link to='/podcast' state={{ query }}>Podcast</Link></Button>
+        <Button size='massive' primary><Link to='/video' state={{ query }} style={{ color: 'black' }}>Video</Link></Button>
+        <Button size='massive' secondary><Link to='/podcast' state={{ query }}>Podcast</Link></Button>
       </div>
     </div>
     )

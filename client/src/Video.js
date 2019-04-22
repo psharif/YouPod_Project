@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-export default ({ location }) => {
-  return <div>
-    <h1>Video</h1>
-    <h3>Query: {location.state.query || ''}</h3>
-  </div>
+class Video extends React.Component {
+
+  state = {};
+
+  render() {
+    return(
+      <div>
+        <h1>Video</h1>
+        <h3>Query: {this.props.location.state.query || ''}</h3>
+      </div>
+    );
+  }
 }
+
+export default Video;

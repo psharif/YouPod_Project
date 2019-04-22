@@ -20,8 +20,8 @@ export default class Search extends React.Component {
       <Input fluid size='massive' icon='search' onChange={this.onChange} placeholder='Search...' />
       <Divider horizontal></Divider>
       <div className="buttons">
-        <Button size='massive' primary><Link to='/video' state={{ query }} style={{ color: 'black' }}>Video</Link></Button>
-        <Button size='massive' secondary><Link to='/podcast' state={{ query }}>Podcast</Link></Button>
+        <Link to='/video' state={{ query }}><Button size='massive' primary style={{ color: 'black'}}>Video</Button></Link>
+        <Link to='/podcast' state={{ query }}><Button size='massive' secondary style={{ color: '#2185d0'}}>Podcast</Button></Link>
       </div>
     </div>
     )

@@ -1,18 +1,21 @@
-// const podcall = require('../apis/podcast');
-// const unirest = require('unirest');
-// const KEY = '64126793557f4228a41630d59c6b7f47';
+const podcall = require('../apis/podcast');
 
-// class PodcastService {
-//     constructor(){}
+class PodcastService {
+    constructor(){}
  
-//     async getResponse () {
-//       const response = await podcall.get('/search?', {
-//         params: {
-//           q: '49ers'
-//         }
-//       });
-//       console.log(response.body);
-//    }
-//  }
+    async getResponse () {
+        try {
+            const response = await podcall.get('/search')
+            console.log(response.data.results);
+            for( let i = 0; i < response.data.results.length; i++ ) {
+                            console.log(response.data.results[i].title_original);
+                            console.log(response.data.results[i].description_original);
+                            console.log('                                              ');
+                        }
+        } catch (error) {
+            console.error(error);
+          }
+    }
+ }
 
-// module.exports = PodcastService;
+module.exports = PodcastService;

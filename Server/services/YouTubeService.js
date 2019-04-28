@@ -3,28 +3,31 @@ const youtube = require('../apis/youtube');
 class YouTubeService {
 
    constructor() {
-     this.videos = [];
+     //this.videos = [];
    }
 
-   async getResponse () {
+   async getVideos (term) {
+     const videos = [];
+
      const response = await youtube.get('/search', {
        params: {
-         q: 'trucks'
+         q: term
        }
      });
 
      for(let video of response.data.items) {
+
         const v = {
           thumbnail: video.snippet.thumbnails.medium.url,
           title: video.snippet.title
         };
 
-        this.videos.push(v);
+        videos.push(v);
      };
-   }
 
-   getVideos(){
-     return this.videos;
+     //console.log(videos);
+
+     return videos;
    }
 
 }

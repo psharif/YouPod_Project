@@ -8,7 +8,16 @@ const keys = require("./config/keys");
 app.use(bodyParser.json());
 
 let ytService = new youTubeService();
-ytService.getResponse();
+//ytService.getVideos('trucks').then(console.log);
+
+app.get('/videos', (req, res) => {
+
+  const ytService = new youTubeService();
+
+  ytService.getVideos('trucks')
+    .then( videos => res.json(videos) );
+
+});
 
 let podService = new podcastCall();
 podService.getResponse();

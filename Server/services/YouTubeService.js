@@ -2,9 +2,7 @@ const youtube = require('../apis/youtube');
 
 class YouTubeService {
 
-   constructor() {
-     //this.videos = [];
-   }
+   constructor() {}
 
    async getVideos (term) {
      const videos = [];
@@ -16,16 +14,12 @@ class YouTubeService {
      });
 
      for(let video of response.data.items) {
-
         const v = {
           thumbnail: video.snippet.thumbnails.medium.url,
           title: video.snippet.title
         };
-
         videos.push(v);
      };
-
-     //console.log(videos);
 
      return videos;
    }

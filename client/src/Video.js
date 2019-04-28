@@ -4,8 +4,16 @@ import Axios from 'axios';
 
 class Video extends React.Component {
 
+  state = {
+    videos: []
+  };
+
   componentDidMount() {
-    Axios.get('http://localhost:5000/videos')
+    Axios.get('http://localhost:5000/videos', {
+      params: {
+        term: this.props.location.state.query || ''
+      }
+     })
       .then(response => {
         this.setState({
           videos: response.data
@@ -16,23 +24,17 @@ class Video extends React.Component {
       });
   }
 
-  state = {
-    videos: []
-  };
-
   render() {
+    const { videos } = this.state;
     return(
       <div>
         <h1>Video</h1>
         <h3>Query: {this.props.location.state.query || ''}</h3>
-        {
-          this.state.videos.map( (video)=> {
-            return <img src={video.thumbnail} />
-          })
-        }
+        { videos.map( (video, indx) => <img src={video.thumbnail} key={`${indx}`} alt={`${video.title}`}/> ) }
       </div>
     );
   }
+
 }
 
 export default Video;

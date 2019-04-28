@@ -9,14 +9,11 @@ const cors = require('cors');
 app.use(bodyParser.json());
 app.use(cors());
 
-let ytService = new youTubeService();
-//ytService.getVideos('trucks').then(console.log);
-
 app.get('/videos', (req, res) => {
 
   const ytService = new youTubeService();
 
-  ytService.getVideos('trucks')
+  ytService.getVideos(req.query.term)
     .then( videos => res.json(videos) );
 
 });

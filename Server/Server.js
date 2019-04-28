@@ -4,11 +4,19 @@ const podcastCall = require('./services/PodcastService');
 const app = express();
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
+const cors = require('cors');
 
 app.use(bodyParser.json());
+app.use(cors());
 
-let ytService = new youTubeService();
-ytService.getResponse();
+app.get('/videos', (req, res) => {
+
+  const ytService = new youTubeService();
+
+  ytService.getVideos(req.query.term)
+    .then( videos => res.json(videos) );
+
+});
 
 let podService = new podcastCall();
 podService.getResponse();

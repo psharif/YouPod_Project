@@ -9,7 +9,7 @@ class Video extends React.Component {
   };
 
   componentDidMount() {
-    Axios.get('http://localhost:5000/videos', {
+    Axios.get('/videos', {
       params: {
         term: this.props.location.state.query || ''
       }

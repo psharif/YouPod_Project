@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -24,14 +23,13 @@
   "homepage": "https://github.com/psharif/YouPod_Project#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.3",
-    "chai": "^4.2.0",
-    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mocha": "^6.1.4",
-    "mysql": "^2.17.1",
-    "nodemon": "^1.18.11",
-    "unirest": "^0.6.0"
+    "nodemon": "^1.18.11"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4"
   }
 }

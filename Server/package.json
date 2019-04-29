@@ -1,26 +1,14 @@
 {
-  "name": "youpod_project",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "Podcast and Youtube search engine",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "private": true,
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
     "test": "mocha"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/psharif/YouPod_Project.git"
-  },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/psharif/YouPod_Project/issues"
-  },
-  "homepage": "https://github.com/psharif/YouPod_Project#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.5",

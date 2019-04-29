@@ -1,7 +1,11 @@
+//external
 const express = require('express');
-const youTubeService = require('./services/YouTubeService');
 const bodyParser = require("body-parser");
 const cors = require('cors');
+
+//internal
+const youTube = require('./apis/youtube')
+const transform = require('./helpers/transform')
 
 //create instance of express
 const app = express();
@@ -12,16 +16,23 @@ app.use(cors());
 
 //routes
 app.get('/videos', async (req, res) => {
-
-  const ytService = new youTubeService();
-
+  
+  const query = {
+    params: {
+      q: req.query.term
+    }
+  }
+  
   try {
-    const videos = await ytService.getVideos(req.query.term)
+    //get response from youtube
+    const { data } = await youTube.get('/search', query)
+    //transform response
+    const videos = transform['videos'](data)
+    //send videos
     res.json(videos)
-  } catch(e){
+  } catch(e) {
     res.json({ error: e.message})
   }
-
 });
 
 module.exports = app

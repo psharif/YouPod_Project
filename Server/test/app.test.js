@@ -5,7 +5,7 @@ const should = chai.should();
 
 chai.use(chaiHttp);
 
-describe('Get /video', () => {
+describe('Get /videos', () => {
   it('should return 5 videos', (done) => {
     chai
     .request(app)

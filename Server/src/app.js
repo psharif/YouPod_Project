@@ -12,7 +12,7 @@ const app = express();
 
 //middleware
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 
 //routes
 app.get('/videos', async (req, res) => {
